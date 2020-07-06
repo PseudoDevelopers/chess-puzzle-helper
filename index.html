@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Puzzle</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="chess.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="menu">
+            <button id="set-all-one-btn" onclick="setAllOne()">All 1</button>
+            <button id="set-all-zero-btn" onclick="setAllZero()">All 0</button>
+            <button id="set-random-btn" onclick="setRandom()">Random</button>
+
+            <button id="reset-btn" onclick="location.reload()">Reset</button>
+        </div>
+    
+        <div id="chess">
+            <div id="chess-body"></div>
+        </div>
+    </div>
+
+    <div id="msj">
+        <p>Left click on cell to flip value. Right click to hide key in it.</p>
+    </div>
+
+    <script>
+        const CHESS_BODY = document.getElementById('chess-body')
+
+        for (let i = 0; i < 8; i++) {
+            const row = document.createElement('div')
+            row.classList.add('chess-row')
+            CHESS_BODY.appendChild(row)
+
+            for (let j = 0; j < 8; j++) {
+                row.insertAdjacentHTML('beforeend', `
+                    <div class="cell" title="" onclick="flipCell(this)" oncontextmenu="setKey(this); return false"></div>
+                `
+                )
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+    <script>
+        setRandom()
+    </script>
+</body>
+
+</html>
