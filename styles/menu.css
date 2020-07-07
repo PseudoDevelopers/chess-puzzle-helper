@@ -1,0 +1,44 @@
+#menu {
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+    #menu {
+        flex-direction: row;
+    }
+}
+
+#menu button {
+    --btn-top-bottom-margin: 10px;
+    
+    margin: var(--btn-top-bottom-margin) 0;
+    padding: 0.9vh 1.5vw;
+    border-radius: 5px;
+
+    font-size: 2vw;
+
+    background: #DDDDDD;
+    border: 0;
+}
+#menu button:hover:not([disabled]) {
+    cursor: pointer;
+    background: #AAAAAA;
+}
+@media screen and (max-width: 768px) {
+    #menu button {
+        margin: 0 3px;
+        --btn-top-bottom-margin: 5px;
+    }
+}
+
+
+/* Space between Value set btns & Reset btn  */
+button#reset-btn {
+    margin-top: 30px;
+}
+@media screen and (max-width: 786px) {
+    button#reset-btn {
+        margin-top: initial;
+        margin-left: 15px;
+    }
+}

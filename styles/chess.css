@@ -4,9 +4,9 @@
     justify-content: center;
     align-items: center;
 
-    height: 100vh;
+    /* margin: -120px; */
 }
-#chess-body { border: 5px solid black; }
+#chess-body { border: 1vw solid black; }
 
 .chess-row { display: flex; }
 .cell {
@@ -14,16 +14,22 @@
     justify-content: center;
     align-items: center;
 
-    --size: 60px;
+    --size: 5vw;
     width: var(--size);
     height: var(--size);
+}
+@media screen and (max-width: 768px) {
+    .cell {
+        --size: 8vw;
+    }
 }
 
 
 /* cell value */
 .cell::after {
     content: attr(data-value);
-    font-size: 30px;
+    font-size: 5vw;
+    max-width: 25px;
     color: inherit;
 }
 

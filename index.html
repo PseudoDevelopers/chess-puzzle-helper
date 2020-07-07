@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Puzzle</title>
 
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="chess.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/chess.css">
 </head>
 
 <body>
@@ -19,6 +19,7 @@
             <button id="set-random-btn" onclick="setRandom()">Random</button>
 
             <button id="reset-btn" onclick="location.reload()">Reset</button>
+            <button id="help-btn" onclick="location.reload()">Help</button>
         </div>
     
         <div id="chess">
@@ -26,9 +27,9 @@
         </div>
     </div>
 
-    <div id="msj">
+    <!-- <div id="msj">
         <p>Left click on cell to flip value. Right click to hide key in it.</p>
-    </div>
+    </div> -->
 
     <script>
         const CHESS_BODY = document.getElementById('chess-body')
