@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/menu.css">
     <link rel="stylesheet" href="styles/chess.css">
+    <link rel="stylesheet" href="styles/help.css">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
             <button id="set-random-btn" onclick="setRandom()">Random</button>
 
             <button id="reset-btn" onclick="location.reload()">Reset</button>
-            <button id="help-btn" onclick="location.reload()">Help</button>
+            <button id="help-btn" onclick="toggleHelp()">Help</button>
         </div>
     
         <div id="chess">
@@ -27,9 +28,30 @@
         </div>
     </div>
 
-    <!-- <div id="msj">
-        <p>Left click on cell to flip value. Right click to hide key in it.</p>
-    </div> -->
+    <div id="help" class="show">
+        <div id="help-body">
+            <span id="close-help" onclick="closeHelp()">&#10006;</span>
+    
+            <p>First Play as Warden</p>
+            <ul>
+                <li>Left click (press on mobile) any cell to flip it.</li>
+                <li>Or set all cells values from menu.</li>
+                <li>Finally to hide key in it right click on cell (hold cell on mobile).</li>
+            </ul>
+    
+            <p>Now play as 1st prison.</p>
+            <ul>
+                <li>Left click (press on mobile) any cell to flip it.</li>
+            </ul>
+
+            <p>Cell colors</p>
+            <ul>
+                <li id="green-box">Green: Contain Key</li>
+                <li id="lightblue-box">Light blue: Flipped</li>
+                <li id="gold-box">Gold: Contain Key & Flipped</li>
+            </ul>
+        </div>
+    </div>
 
     <script>
         const CHESS_BODY = document.getElementById('chess-body')
@@ -51,6 +73,14 @@
     <script src="script.js"></script>
     <script>
         setRandom()
+    </script>
+
+    <!-- Toggle Help -->
+    <script>
+        const HELP_ELEM = document.getElementById('help')
+
+        function toggleHelp()/**/ { HELP_ELEM.classList.toggle('show') }
+        function closeHelp()/***/ { HELP_ELEM.classList.remove('show') }
     </script>
 </body>
 

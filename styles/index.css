@@ -25,20 +25,3 @@ body {
         justify-content: space-evenly;
     }
 }
-
-#msj {
-    display: flex;
-    justify-content: center;
-}
-#msj p {
-    display: inline;
-
-    padding: 3px 5px;
-    
-    color: black;
-    background: white;
-    font-size: 20px;
-    
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-}
