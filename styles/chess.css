@@ -19,9 +19,7 @@
     height: var(--size);
 }
 @media screen and (max-width: 768px) {
-    .cell {
-        --size: 8vw;
-    }
+    .cell { --size: 10vw; }
 }
 
 

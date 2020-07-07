@@ -28,6 +28,7 @@
     #menu button {
         margin: 0 3px;
         --btn-top-bottom-margin: 5px;
+        font-size: 4vw;
     }
 }
 
