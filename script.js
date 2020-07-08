@@ -63,11 +63,15 @@ const setZero/***/ = cell => cell.setAttribute('data-value', '0')
 const getValue/**/ = cell => parseInt(cell.getAttribute('data-value'))
 
 function flippedAsHint(cell) {
-    cell.setAttribute('title', 'Flipped')
+    if (cell === previousKeyContainingCell) cell.setAttribute('title', 'Contain Key & also Flipped')
+    else/*********************************/ cell.setAttribute('title', 'Flipped')
+
     cell.setAttribute('data-flipped-as-hint', '')
 }
 function unflippedAsHint(cell) {
-    cell.setAttribute('title', '')
+    if (cell === previousKeyContainingCell) cell.setAttribute('title', 'Contain Key')
+    else/*********************************/ cell.setAttribute('title', '')
+
     cell.removeAttribute('data-flipped-as-hint')
 }
 
@@ -88,12 +92,16 @@ function setKey(cell) {
         UNSET_KEY(cell)
         previousKeyContainingCell = null
 
+        if (previousFlippedCell) {    // Here we also have to remove flipped properties
+            unflippedAsHint(previousFlippedCell)
+            previousFlippedCell = null
+        }
+
         SET_ALL_ONE_BTN.disabled = SET_ALL_ZERO_BTN.disabled = SET_RANDOM_BTN.disabled = false
     } else {
         SET_KEY(cell)
         previousKeyContainingCell = cell
         SET_ALL_ONE_BTN.disabled = SET_ALL_ZERO_BTN.disabled = SET_RANDOM_BTN.disabled = true
-
     }
 }
 
@@ -101,10 +109,14 @@ function setKey(cell) {
 // ----------------------------------------------
 
 function SET_KEY(cell) {
-    cell.setAttribute('title', 'Contain Key')
+    if (cell === previousFlippedCell) cell.setAttribute('title', 'Contain Key & also Flipped')
+    else/***************************/ cell.setAttribute('title', 'Contain Key')
+
     cell.setAttribute('data-contain-key', '')
 }
 function UNSET_KEY(cell) {
-    cell.setAttribute('title', '')
+    if (cell === previousFlippedCell) cell.setAttribute('title', 'Flipped')
+    else/***************************/ cell.setAttribute('title', '')
+
     cell.removeAttribute('data-contain-key')
 }
