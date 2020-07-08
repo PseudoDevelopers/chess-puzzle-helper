@@ -62,8 +62,14 @@ const setOne/****/ = cell => cell.setAttribute('data-value', '1')
 const setZero/***/ = cell => cell.setAttribute('data-value', '0')
 const getValue/**/ = cell => parseInt(cell.getAttribute('data-value'))
 
-const flippedAsHint/****/ = cell => cell.setAttribute('title', 'Flipped')
-const unflippedAsHint/**/ = cell => cell.setAttribute('title', '')
+function flippedAsHint(cell) {
+    cell.setAttribute('title', 'Flipped')
+    cell.setAttribute('data-flipped-as-hint', '')
+}
+function unflippedAsHint(cell) {
+    cell.setAttribute('title', '')
+    cell.removeAttribute('data-flipped-as-hint')
+}
 
 
 
@@ -94,5 +100,11 @@ function setKey(cell) {
 
 // ----------------------------------------------
 
-const SET_KEY = cell => cell.setAttribute('title', 'Contain Key')
-const UNSET_KEY = cell => cell.setAttribute('title', '')
+function SET_KEY(cell) {
+    cell.setAttribute('title', 'Contain Key')
+    cell.setAttribute('data-contain-key', '')
+}
+function UNSET_KEY(cell) {
+    cell.setAttribute('title', '')
+    cell.removeAttribute('data-contain-key')
+}

@@ -55,8 +55,10 @@ body { background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)); }
 
 
 /* cell containing key */
-.cell[title*='key' i] { background: green !important; }
-
+.cell[data-contain-key] { background: green !important; }
 
 /* flipped cell */
-.cell[title*="flipped" i] { background: lightblue !important; }
+.cell[data-flipped-as-hint] { background: lightblue !important; }
+
+/* cell flipped & containing key */
+.cell[data-contain-key][data-flipped-as-hint] { background: gold !important; }
