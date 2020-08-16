@@ -1,0 +1,64 @@
+#chess {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* margin: -120px; */
+}
+#chess-body { border: 1vw solid black; }
+
+.chess-row { display: flex; }
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    --size: 5vw;
+    width: var(--size);
+    height: var(--size);
+}
+@media screen and (max-width: 768px) {
+    .cell { --size: 10vw; }
+}
+
+
+/* cell value */
+.cell::after {
+    content: attr(data-value);
+    font-size: 5vw;
+    max-width: 25px;
+    color: inherit;
+}
+
+
+/* Cell Colors */
+.cell/*************************************************/ { background: black; color: white; }
+.chess-row:nth-of-type(odd) .cell:nth-of-type(odd)/****/ { background: white; color: black; }
+.chess-row:nth-of-type(even) .cell:nth-of-type(even)/**/ { background: white; color: black; }
+
+
+/* cell Hovering */
+.cell { cursor: pointer; }
+
+.cell:hover/*************************************************/ { background: #333333 }
+.chess-row:nth-of-type(odd) .cell:nth-of-type(odd):hover/****/ { background: #BBBBBB; }
+.chess-row:nth-of-type(even) .cell:nth-of-type(even):hover/**/ { background: #BBBBBB; }
+
+
+/* 3D Effect */
+body { background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)); }
+#chess-body { box-shadow: 0 5px 30px white; }
+
+#chess/***/ { perspective: 1000px; }
+#chess-body { transform: rotateX(50deg); }
+
+
+/* cell containing key */
+.cell[data-contain-key] { background: green !important; }
+
+/* flipped cell */
+.cell[data-flipped-as-hint] { background: lightblue !important; }
+
+/* cell flipped & containing key */
+.cell[data-contain-key][data-flipped-as-hint] { background: gold !important; }

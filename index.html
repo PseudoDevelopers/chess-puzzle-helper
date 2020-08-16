@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Puzzle</title>
+
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/chess.css">
+    <link rel="stylesheet" href="styles/help.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="menu">
+            <button id="set-all-one-btn" onclick="setAllOne()">All 1</button>
+            <button id="set-all-zero-btn" onclick="setAllZero()">All 0</button>
+            <button id="set-random-btn" onclick="setRandom()">Random</button>
+
+            <button id="reset-btn" onclick="location.reload()">Reset</button>
+            <button id="help-btn" onclick="toggleHelp()">Help</button>
+        </div>
+    
+        <div id="chess">
+            <div id="chess-body"></div>
+        </div>
+    </div>
+
+    <div id="help">
+        <div id="help-body">
+            <span id="close-help" onclick="closeHelp()">&#10006;</span>
+    
+            <p>First Play as Warden</p>
+            <ul>
+                <li>Left click (press on mobile) any cell to flip it.</li>
+                <li>Or set all cells values from menu.</li>
+                <li>Finally to hide key in it right click on cell (hold cell on mobile).</li>
+            </ul>
+    
+            <p>Now play as 1st prisoner.</p>
+            <ul>
+                <li>Left click (press on mobile) any cell to flip it.</li>
+            </ul>
+
+            <p>Cell colors</p>
+            <ul>
+                <li id="green-box">Green: Contain Key</li>
+                <li id="lightblue-box">Light blue: Flipped</li>
+                <li id="gold-box">Gold: Contain Key & also Flipped</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const CHESS_BODY = document.getElementById('chess-body')
+
+        for (let i = 0; i < 8; i++) {
+            const row = document.createElement('div')
+            row.classList.add('chess-row')
+            CHESS_BODY.appendChild(row)
+
+            for (let j = 0; j < 8; j++) {
+                row.insertAdjacentHTML('beforeend', `
+                    <div class="cell" title="" onclick="flipCell(this)" oncontextmenu="setKey(this); return false"></div>
+                `
+                )
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+    <script>
+        setRandom()
+    </script>
+
+    <!-- Toggle Help -->
+    <script>
+        const HELP_ELEM = document.getElementById('help')
+
+        function toggleHelp()/**/ { HELP_ELEM.classList.toggle('show') }
+        function closeHelp()/***/ { HELP_ELEM.classList.remove('show') }
+    </script>
+</body>
+
+</html>
